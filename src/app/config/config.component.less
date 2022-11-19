@@ -1,0 +1,101 @@
+#content {
+    padding-bottom: 2em;
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    color: #E0FBFC;
+    #container {
+        display: flex;
+        justify-content: space-around;
+
+        >#confGrid , #initalPos, #createPattern{
+            width: 25%;
+            border: 1px solid #E0FBFC;
+            padding: 1em;
+            span {
+                width: 50%;
+            }
+            .label {
+                color: #EE6C4D;
+            }
+            >#confCol , >#confRow, >#initX, >#initY, >#orientation{
+                display: flex;
+                justify-content: space-around;
+
+            }
+            >#confCol, >#initX, >#initY , >#pattern {
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+            #orientation {
+                >#orientControl {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-around;
+                    p {
+                        padding: 0 1em 0 1em;
+                        cursor: pointer;
+                        border: 1px solid transparent;
+                        user-select: none;
+                        font-weight: 200;
+                        &.selected {
+                            border: 1px solid #EE6C4D;
+                        }
+                    }
+                }
+            }
+        }
+        #createPattern {
+            >#pattern {
+                display: flex;
+                flex-wrap: wrap;
+                min-height: 3em;
+                >span {
+                    margin-right: 0.5em;
+                    padding: 0.5em;
+                    width: 1em;
+                    margin-bottom: 0.5em;
+                    user-select: none;
+                    text-align: center;
+                }
+            }
+            >#controls {
+                display: flex;
+                justify-content: space-between;
+                user-select: none;
+                >button {
+                    padding: 0.5em;
+                    cursor: pointer;
+                    background-color: transparent;
+                    color: #E0FBFC;
+                }
+            }
+            .left {
+                border: 1px solid rgb(85, 158, 206);
+            }
+            .right {
+                border: 1px solid rgb(90, 184, 90);
+            }
+            .walk {
+                border: 1px solid rgb(190, 190, 108);
+            }
+            .delete {
+                border: 1px solid rgb(177, 81, 81);
+            }
+        }
+    }
+    #start {
+        padding: 1em;
+        width: 10%;
+        margin: 0 auto;
+        margin-top: 2em;
+        background-color: transparent;
+        border: 1px solid #EE6C4D;
+        color: #E0FBFC;
+        transition-duration: 0.2s;
+    }
+    #start:hover {
+        color: #EE6C4D;
+        border: 1px solid #E0FBFC;
+    }
+}

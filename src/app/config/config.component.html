@@ -1,0 +1,53 @@
+<div id="content">
+    <div id="container">
+        <div id="confGrid">
+            <p class="label"  matTooltip="Les valeurs doivent être des nombres entiers" matTooltipClass="tooltipStyle">Configuration de la grille</p>
+            <div id="confCol">
+                <span>Nombre de colonnes (x) : </span>
+                <input (keyup)="onKey($event, 'col')">
+            </div>
+            <div id="confRow">
+                <span>Nombre de lignes (y) : </span>
+                <input (keyup)="onKey($event, 'row')">
+            </div>
+        </div>
+    
+        <div id="initalPos">
+            <p class="label" matTooltip="Les valeurs doivent être comprises dans les valeurs entre crochets" matTooltipClass="tooltipStyle">Position initiale</p>
+            <div id="initX">
+                <span>Position X [0, {{grid.col - 1}}] : </span>
+                <input (keyup)="onKey($event, 'initX')">
+            </div>
+            <div id="initY">
+                <span>Position Y [0, {{grid.row - 1}}] : </span>
+                <input (keyup)="onKey($event, 'initY')">
+            </div>
+            <div id="orientation">
+                <span>Orientation : </span>
+                <div id="orientControl">
+                    <div *ngFor="let control of orientControl">
+                        <p [ngClass]="{'selected': control.type === grid.orient}" (click)="setInitOrient(control.type)">{{control.text}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    
+        <div id="createPattern">
+            <p class="label">Créer un chemin</p>
+            <div id="pattern">
+                <span *ngFor="let control of grid.pattern" [ngClass]="{'left': control === 'G', 'right' : control === 'D', 'walk' : control === 'A'}">{{control}}</span>
+            </div>
+            <div id="controls">
+                <button (click)='addToPattern("right")' class="right" matTooltip="D" matTooltipClass="tooltipStyle">Rotation à droite</button>
+                <button (click)='addToPattern("left")' class="left" matTooltip="G" matTooltipClass="tooltipStyle">Rotation à gauche</button>
+                <button (click)='addToPattern("walk")' class="walk" matTooltip="A" matTooltipClass="tooltipStyle">Avancer</button>
+                <button (click)='addToPattern("delete")' class="delete" *ngIf="grid.pattern.length > 0" matTooltip="Effacer le dernier élement" matTooltipClass="tooltipStyle">Effacer</button>
+            </div>
+        </div>
+
+    </div>
+
+    <button id="start" *ngIf="grid.pattern.length > 0 && grid.col > 0 && grid.row > 0 && grid.startX >= 0 && grid.startX <= grid.col - 1 && isInteger(grid.col) && isInteger(grid.row)" (click)="start()">Commencer</button>
+
+</div>
