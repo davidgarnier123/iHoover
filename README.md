@@ -1,3 +1,9 @@
+## Etape Optionnelle
+Ce projet a été réalisé avec le framework Angular 9, il est necessaire d'installer celui-ci : https://angular.io/guide/setup-local
+```
+npm install -g angular-cli@9.1.15
+```
+
 ## Récupérer le projet
 ```
 git clone https://github.com/davidgarnier123/iHoover.git
@@ -6,11 +12,11 @@ git clone https://github.com/davidgarnier123/iHoover.git
 ```
 cd iHoover
 ```
-## installer les dépendances
+## Installer les dépendances
 ```
 npm i
 ```
-## compilation + lancement du serveur
+## Compilation + lancement du serveur
 ```
 npm start
 ```
