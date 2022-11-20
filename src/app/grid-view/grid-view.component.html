@@ -1,11 +1,11 @@
 <div id="content" *ngIf="board.length > 0">
     <div id="position">
         <p>Nombre de mouvements : <span>{{countMooves}}</span></p>
-        <p>Position : X = <span>{{x}}</span>  Y = <span>{{y}}</span></p>
-        <p>Orientation : <span>{{orientation}}</span></p>
+        <p>Position : X = <span>{{vac.posX}}</span>  Y = <span>{{vac.posY}}</span></p>
+        <p>Orientation : <span>{{vac.orient}}</span></p>
         <p matTooltip="Mouvements non autorisés" matTooltipClass="tooltipStyle">Nombre d'erreurs : <span>{{countErrors}}</span></p>
     </div>
-    <p class="success" [ngClass]="{'hidden': countMooves !== pattern.length }">Séquence terminée</p>
+    <p class="success" [ngClass]="{'hidden': countMooves !== vac.pattern.length }">Séquence terminée</p>
     <div id="container">
         <span *ngFor="let case of board" class="line">
             <span *ngFor="let case1 of case" class="field" [ngClass]="{'currentPos': case1 === 1 }">
@@ -14,7 +14,7 @@
         </span>
 
         <!-- These buttons can control position -->
-        <div id="controls" *ngIf="countMooves === pattern.length">
+        <div id="controls" *ngIf="countMooves === vac.pattern.length && vac.pattern.length !== 0">
             <button (click)='goUp()'>Haut</button>
             <button (click)='goDown()'>Bas</button>
             <button (click)='goRight()'>Droite</button>
